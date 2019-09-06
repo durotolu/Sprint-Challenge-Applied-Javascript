@@ -35,39 +35,6 @@ function carouselFunction () {
   const rightButtonDiv = document.createElement('div');
   rightButtonDiv.setAttribute('class', 'right-button')
 
-
-  // let slideIndex = 1;
-  // showSlides(slideIndex);
-
-  leftButtonDiv.addEventListener('click', n => {
-    document.querySelector('img').classList.toggle('.carousel');
-  })
-  //   showSlides(slideIndex += -1);
-  // })
-
-  // function showSlides (n) {
-  //   var i;
-  //   let slides = document.querySelector('img');
-  //   if (n>slides.length) {slideIndex = 1}
-  //   if (n<1) {slideIndex = slideIndex = slides.length}
-  //   for (i=0; i<slides.length; i++) {
-  //     slides[i].style.display = "initial";
-  //   }
-  //   slides[slideIndex-1].style.display = 'block';
-  // }
-  
-  // function plusSlides(n) {
-  //   showSlides(slideIndex += n);
-  // }
-
-  // function current(n) {
-  //   showSlides(slideIndex =n);
-  // }
-
-  // function showSlides(n) {
-  //   var i;
-  // }
-
   carouselDiv.appendChild(leftButtonDiv);
   carouselDiv.appendChild(mountainImage);
   carouselDiv.appendChild(computerImage);
@@ -78,11 +45,19 @@ function carouselFunction () {
   let images = [mountainImage, computerImage, treesImage, turntableImage]
   let index= 0;
   images[0].style.display = "block";
+
   rightButtonDiv.addEventListener('click', () => {
     images.forEach(img => img.style.display = "none");
     let currentIndex = (index++) % images.length;
 
     images[currentIndex].style.display = "block";
+  })
+
+  leftButtonDiv.addEventListener('click', () => {
+    images.forEach(img => img.style.display = "none");
+    --index;
+    if (index < 0) index =3;
+    images[index%images.length].style.display = 'block';
   })
 
   return carouselDiv;
