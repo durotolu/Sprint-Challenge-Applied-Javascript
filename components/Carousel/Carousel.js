@@ -41,5 +41,7 @@ function carouselFunction () {
   carouselDiv.appendChild(turntableImage);
   carouselDiv.appendChild(rightButtonDiv);
 
-  return carouselDiv;
+  document.querySelector('.carousel-container').appendChild(carouselDiv);
 }
+
+carouselFunction ();
