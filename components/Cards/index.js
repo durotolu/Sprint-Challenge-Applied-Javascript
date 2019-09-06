@@ -30,6 +30,8 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
         }
     }
 
+    articleComponent(arr);
+
 })
 .catch(error => {
     error;
