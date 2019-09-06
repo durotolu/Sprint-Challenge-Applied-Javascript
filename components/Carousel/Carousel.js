@@ -19,6 +19,7 @@
 */
 
 function carouselFunction () {
+  //debugger
   const carouselDiv = document.createElement('div');
   carouselDiv.setAttribute('class', 'carousel');
   const leftButtonDiv = document.createElement('div');
@@ -41,7 +42,7 @@ function carouselFunction () {
   carouselDiv.appendChild(turntableImage);
   carouselDiv.appendChild(rightButtonDiv);
 
-  document.querySelector('.carousel-container').appendChild(carouselDiv);
+  return carouselDiv;
 }
 
-carouselFunction ();
+document.querySelector('.carousel-container').appendChild(carouselFunction());
