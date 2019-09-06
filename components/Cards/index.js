@@ -22,10 +22,11 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
 .then(response => {
     const obj = response.data.articles;
     const arrAwesome = Object.values(obj);
+    let arr = [];
     
     for (let i=0; i<arrAwesome.length; i++) {
         for (let j=0; j<arrAwesome[i].length; j++) {
-            console.log(arrAwesome[i][j]);
+            arr.push(arrAwesome[i][j]);
         }
     }
 
