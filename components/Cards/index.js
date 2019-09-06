@@ -37,10 +37,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     error;
 })
 
-function articleComponent (anyArticles) {
-    //debugger
-    anyArticles.forEach((el) => {
-        //debugger
+function articleComponent (anyArticles) {    anyArticles.forEach((el) => {
         const cardDiv = document.createElement('div');
         cardDiv.setAttribute('class', 'card');
         const headlineDiv = document.createElement('div');
@@ -62,6 +59,5 @@ function articleComponent (anyArticles) {
         aurthorDiv.appendChild(span);
         //debugger
         document.querySelector('.cards-container').appendChild(cardDiv);
-    })
-    //debugger
+    })    //debugger
 }
