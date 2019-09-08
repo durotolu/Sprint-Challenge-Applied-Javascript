@@ -17,3 +17,47 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+.then(response => {
+    const obj = response.data.articles;
+    const arrAwesome = Object.values(obj);
+    let arr = [];
+    
+    for (let i=0; i<arrAwesome.length; i++) {
+        for (let j=0; j<arrAwesome[i].length; j++) {
+            arr.push(arrAwesome[i][j]);
+        }
+    }
+
+    articleComponent(arr);
+
+})
+.catch(error => {
+    error;
+})
+
+function articleComponent (anyArticles) {    anyArticles.forEach((el) => {
+        const cardDiv = document.createElement('div');
+        cardDiv.setAttribute('class', 'card');
+        const headlineDiv = document.createElement('div');
+        headlineDiv.setAttribute('class', 'headline');
+        headlineDiv.textContent = el.headline;
+        const aurthorDiv = document.createElement('div');
+        aurthorDiv.setAttribute('class', 'author');
+        const imageDiv = document.createElement('div');
+        imageDiv.setAttribute('class', 'img-container');
+        const image = document.createElement('img');
+        image.setAttribute('src', el.authorPhoto);
+        const span = document.createElement('span');
+        span.textContent = `By ${el.authorName}`;
+
+        cardDiv.appendChild(headlineDiv);
+        cardDiv.appendChild(aurthorDiv);
+        imageDiv.appendChild(image);
+        aurthorDiv.appendChild(imageDiv);
+        aurthorDiv.appendChild(span);
+        //debugger
+        document.querySelector('.cards-container').appendChild(cardDiv);
+    })    //debugger
+}
